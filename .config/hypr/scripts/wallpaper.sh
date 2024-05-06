@@ -12,7 +12,6 @@
 # Cache file for holding the current wallpaper
 
 cache_file="$HOME/.cache/current_wallpaper"
-blurred="$HOME/.cache/blurred_wallpaper.png"
 css_file="$HOME/.cache/current_wallpaper.css"
 rasi_file="$HOME/.cache/current_wallpaper.rasi"
 blur_file="$HOME/.config/.settings/blur.sh"
@@ -28,7 +27,7 @@ fi
 # Create rasi file if not exists
 if [ ! -f $rasi_file ] ;then
     touch $rasi_file
-    echo "* { current-image: url(\"$HOME/wallpaper/default.png\", height); }" > "$rasi_file"
+    echo "* { current-image: url(\"$HOME/wallpaper/default.png\", width); }" > "$rasi_file"
 fi
 
 current_wallpaper=$(cat "$cache_file")
@@ -56,12 +55,12 @@ case $1 in
             echo "No wallpaper selected"
             exit
         fi
-        wal -q -s -t -i ~/wallpaper/$selected
+        wal -q -a 70 -s -t -i ~/wallpaper/$selected
     ;;
 
     # Randomly select wallpaper 
     *)
-        wal -q -s -t -i ~/wallpaper/
+        wal -q -s -a 70 -t -i ~/wallpaper/
     ;;
 
 esac
@@ -81,6 +80,7 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 # Reload waybar with new colors
 # -----------------------------------------------------
 ~/.config/waybar/launch.sh
+eww reload
 
 # ----------------------------------------------------- 
 # Set the new wallpaper
@@ -125,7 +125,7 @@ fi
 # Write selected wallpaper into .cache files
 # ----------------------------------------------------- 
 echo "$wallpaper" > "$cache_file"
-echo "* { current-image: url(\"$blurred\", height); }" > "$rasi_file"
+echo "* { current-image: url(\"$HOME/wallpaper/$selected\", width); }" > "$rasi_file"
 # ----------------------------------------------------- 
 # Send notification
 # ----------------------------------------------------- 

@@ -1,0 +1,24 @@
+(defwindow bar
+    :monitor 0
+    :geometry (geometry :width "100%"
+                        :anchor "top center"
+                    )
+    :exclusive true
+    :namespace "eww"
+    (bar)
+)
+
+(defwindow spotify_player
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :namespace "spotify_player"
+  :wm-ignore false
+  :geometry (
+    geometry
+    :x "55%"
+    :y "1%"
+    :width "400px"
+    :height "650px"
+  )
+(player))

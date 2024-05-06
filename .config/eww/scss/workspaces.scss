@@ -1,0 +1,25 @@
+.workspaces {
+  border-radius: 2rem;
+  padding: 0.5rem;
+  margin: 0 1rem;
+  background-color: $background;
+}
+
+.workspace {
+  border: 3px solid $color2;
+  border-radius: 1rem;
+  margin: 0 0.25rem;
+  min-width: 20px;
+  transition: all 0.3s ease-in-out;
+
+  &.current {
+    background-color: $color2;
+  }
+}
+
+.workspace:hover {
+  background-color: mix($color2, $color3, 70%);
+  &.current {
+    background-color: mix($color2, $color3, 70%);
+  }
+}

@@ -1,4 +1,10 @@
-@import "../../.cache/wal/colors-spotify.scss"
+@import "../../.cache/wal/spotify/colors-spotify.scss"
+@import "../../.cache/wal/colors.scss"
+
+@import "./scss/spotify_player.scss"
+@import "./scss/workspaces.scss"
+@import "./scss/logo.scss"
+@import "./scss/bar.scss"
 
 * {
   all: unset;
@@ -6,75 +12,3 @@
   border-radius: 15px;
 }
 
-.layout-box {
-  font-family: JetBrainsMono Nerd Font;
-  background-color: $background;
-  // background-color: rgba(38, 35, 58, 0.8);
-  border: 1px solid #FFFFFF;
-}
-
-.header{
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 1em 0;
-}
-
-.metric{
-  all: unset;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #FFFFFF;
-  padding: 0.4em;
-}
-
-.metric scale trough highlight {
-  all: unset;
-  // background-color: #eb6f92;
-  background-color: $color1;
-  border-radius: 10px;
-}
-
-.metric scale trough {
-  all: unset;
-  background-color: $color0;
-  // background-color: #191724;
-  border-radius: 2em;
-  min-height: 0.4em;
-  min-width: 7em;
-  margin-left: 0.8em;
-  margin-right: 0.2em;
-}
-
-.btn {
-  all: unset;
-  font-size: 30px;
-  transition: color 200ms;
-}
-
-.btn:hover {
-  color: $color1;
-  // color: #eb6f92;
-}
-
-.btn2:hover {
-  transition: color 200ms;
-  color: $color1;
-  // color: #eb6f92;
-}
-
-.player_btn{
-  font-size: 20px;
-  background-color: #FFFFFF;
-  min-height: 70px;
-  min-width: 70px;
-  // color: #000000;
-  color: $background;
-  border-radius: 100%;
-  transition: background-color, color 200ms;
-}
-
-.player_btn:hover{
-  // color: #eb6f92;
-  color: #ffffff;
-  background-color: $color1;
-}

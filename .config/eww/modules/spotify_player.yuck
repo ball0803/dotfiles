@@ -1,0 +1,118 @@
+
+(defwidget player []
+  (box
+  :class "layout-box"
+  :space-evenly false
+  :orientation 'v'
+    (label
+      :class "header"
+      :text "  ~ NOW PLAYING"
+    )
+    (box 
+      :orientation "h"
+      :space-evenly false
+      :class "music-image"
+      :style "background-image: url('${spotify.artUrl}');"
+    )
+    (label
+      :wrap true
+      :style "font-weight: bold;font-size: 24px;margin-top: 10px;"
+      :text "${spotify.artist}"
+    )
+    (label
+      :style "font-size: 20px;margin-bottom: 10px;"
+      :wrap true
+      :text "${spotify.title}"
+    )
+    (box
+      (label
+        :xalign 0.1
+        :text {position.lengthStr}
+      )
+      (label
+        :xalign 0.9
+        :text {spotify.lengthStr}
+      )
+    )
+    (box
+      :class "metric"
+      (scale
+        :value {position.length}
+        :min 0.0
+        :max {spotify.length}
+        :onchange 'playerctl --player="spotify" position {}'
+      )
+    )
+
+    (box
+      :orientation 'h'
+      :space-evenly false
+      :vexpand false
+      :hexpand false
+      :halign "center"
+      :spacing 40
+      :style "margin: 1em 0;"
+      (button
+        :class "btn2"
+        :onclick 'playerctl --player="spotify" shuffle toggle'
+        :style {
+          shuffle == "On" ?
+          "color: #eb6f92;" :
+          ""
+        }
+          ''
+      )
+      (button
+        :class "btn"
+        :onclick 'playerctl --player="spotify" previous'
+        ''
+      )
+      (button
+        :class "player_btn"
+        :onclick 'playerctl --player="spotify" play-pause'
+        {status == "Playing" ? "" : ""}
+      )
+      (button
+        :class "btn"
+        :onclick 'playerctl --player="spotify" next'
+        ''
+      )
+      (button
+        :class "btn2"
+        :style {
+          loop == "Track" || loop == "Playlist" ?
+          "color: #eb6f92;" :
+          ""
+        }
+        :onclick {
+          loop == "None" ? 'playerctl --player="spotify" loop Track' :
+            loop == "Track" ? 'playerctl --player="spotify" loop Playlist' :
+              'playerctl --player="spotify" loop None'
+        }
+        {
+          loop == "Playlist" ? ' *' : ''
+        }
+      )
+    )
+    (box
+      :class "metric"
+      :orientation 'h'
+      :space-evenly false
+      :halign "center"
+      (button
+        :class "btn2"
+        :onclick {volume != 0.0 ?
+          `eww update volume_muted=${volume} && playerctl --player="spotify" volume 0` :
+          `playerctl --player="spotify" volume ${volume_muted}`}
+        {volume == 0.0 ? " " : volume < 0.5 ? " " : " " }
+      )
+      (scale
+        :value {volume}
+        :round-digits 2
+        :min 0.0
+        :max 2.0
+        :onchange 'playerctl --player="spotify" volume {}'
+      )
+    )
+  )
+)

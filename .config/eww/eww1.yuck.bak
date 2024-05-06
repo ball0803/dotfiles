@@ -1,0 +1,169 @@
+(defwindow spotify_player
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :namespace "spotify_player"
+  :wm-ignore false
+  :geometry (
+    geometry
+    :x "55%"
+    :y "1%"
+    :width "400px"
+    :height "650px"
+  )
+(player_layout))
+
+(defwidget player_layout []
+  (box
+  :class "layout-box"
+  :space-evenly false
+  :orientation 'v'
+    (label
+      :class "header"
+      :text "  ~ NOW PLAYING"
+    )
+    (image
+      :path "../../.cache/current_art.png"
+      :image-width 300
+      :image-height 300
+    )
+    (label
+      :wrap true
+      :style "font-weight: bold;font-size: 24px;margin-top: 10px;"
+      :text "${spotify.artist}"
+    )
+    (label
+      :style "font-size: 20px;margin-bottom: 10px;"
+      :wrap true
+      :text "${spotify.title} ${test1}"
+    )
+    (box
+      (label
+        :xalign 0.1
+        :text {current_position.format}
+      )
+      (label
+        :xalign 0.9
+        :text {spotify.position_format}
+      )
+    )
+    (box
+      :class "metric"
+      (scale
+        :value {current_position.sec}
+        :min 0.0
+        :max {spotify.position}
+        :onchange 'playerctl --player="spotify" position {}'
+      )
+    )
+
+    (box
+      :orientation 'h'
+      :space-evenly false
+      :vexpand false
+      :hexpand false
+      :halign "center"
+      :spacing 40
+      :style "margin: 1em 0;"
+      (button
+        :class "btn2"
+        :onclick 'playerctl --player="spotify" shuffle toggle'
+        :style {
+          shuffle == "On" ?
+          "color: #eb6f92;" :
+          ""
+        }
+          ''
+      )
+      (button
+        :class "btn"
+        :onclick 'playerctl --player="spotify" previous & ./pull_art.sh'
+        ''
+      )
+      (button
+        :class "player_btn"
+        :onclick 'playerctl --player="spotify" play-pause'
+        {status == "Playing" ? "" : ""}
+      )
+      (button
+        :class "btn"
+        :onclick 'playerctl --player="spotify" next & ./pull_art.sh'
+        ''
+      )
+      (button
+        :class "btn2"
+        :style {
+          loop == "Track" || loop == "Playlist" ?
+          "color: #eb6f92;" :
+          ""
+        }
+        :onclick {
+          loop == "None" ? 'playerctl --player="spotify" loop Track' :
+            loop == "Track" ? 'playerctl --player="spotify" loop Playlist' :
+              'playerctl --player="spotify" loop None'
+        }
+        {
+          loop == "Playlist" ? ' *' : ''
+        }
+      )
+    )
+    (box
+      :class "metric"
+      :orientation 'h'
+      :space-evenly false
+      :halign "center"
+      (button
+        :class "btn2"
+        :onclick {volume != 0.0 ?
+          `eww update volume_muted=${volume} && playerctl --player="spotify" volume 0` :
+          `playerctl --player="spotify" volume ${volume_muted}`}
+        {volume == 0.0 ? " " : volume < 0.5 ? " " : " " }
+      )
+      (scale
+        :value {volume}
+        :round-digits 2
+        :min 0.0
+        :max 2.0
+        :onchange 'playerctl --player="spotify" volume {}'
+      )
+    )
+  )
+)
+
+(defvar volume_muted 1.0)
+
+(deflisten shuffle 
+  :initial 'Off'
+  `playerctl --player="spotify" --follow shuffle`
+)
+
+(deflisten loop 
+  :initial 'None'
+  `playerctl --player="spotify" --follow loop`
+)
+
+(deflisten status
+  :initial "Paused"
+  `playerctl --player="spotify" --follow status`
+)
+
+(deflisten volume
+  :initial 0.0
+  `playerctl --player="spotify" volume --follow`
+)
+
+(deflisten current_position
+  :initial '{"sec":0,"format":"0:0"}'
+  `playerctl --follow --player="spotify" position -f '{"sec":{{position/1000000}},"format":"{{duration(position)}}"}'`
+)
+
+(deflisten spotify
+  :initial '{"title":"","length":0,"artist":"","position":0,"position_format":"0:0"}'
+  `playerctl --follow --player="spotify" metadata -f '{"length": {{mpris:length/1000000}},"title":"{{xesam:title}}","artist":"{{xesam:artist}}","position":{{mpris:length/1000000}},"position_format":"{{duration(mpris:length)}}"}'`
+)
+
+(defpoll test1 
+  :interval "1s"
+  :run-while true 
+  `./pull_art.sh`
+)

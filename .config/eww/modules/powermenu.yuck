@@ -1,0 +1,8 @@
+(defwidget powermenu_entry [label icon onclick]
+    (box :orientation "v" :space-evenly false :class "powermenu-entry"
+        (button :class "powermenu-button" :onclick {onclick}
+            (label :class "powermenu-icon" :text {icon})
+        )
+        (label :class "powermenu-text" :text {label})
+    )
+)

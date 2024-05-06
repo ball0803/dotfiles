@@ -1,0 +1,13 @@
+.logo {
+  font-size: 24px;
+  background-color: $background;
+  color: #FFFFFF;
+  border-radius: 2rem;
+  padding: 0 0.8rem 0 0.6rem;
+  transition: 0.3s;
+  min-width: 30px;
+}
+
+.logo:hover {
+    background-color: mix($color2, $color3, 70%);
+}
