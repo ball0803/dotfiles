@@ -3,7 +3,12 @@
 )
 
 (defwidget big_clock []
-    (box :class "big_clock_box" :orientation "h" :space-evenly false
-        (label :class "big_clock_label" :text {formattime(EWW_TIME, "%H:%M")})
+    (box :class "big_clock_box" :orientation "v" :space-evenly false
+        (label :class "header-label"
+          :halign "end"
+          :text {formattime(EWW_TIME, "%H:%M")})
+        (label :class "normal-label"
+          :halign "end"
+          :text {formattime(EWW_TIME, "%A, %d/%m")})
     )
 )

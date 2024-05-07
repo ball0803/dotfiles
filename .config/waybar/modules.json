@@ -194,7 +194,7 @@
       "exec": "playerctl --player='spotify' metadata -f '{{xesam:artist}} : {{xesam:title}}' | cut -c 1-30 | awk 'length($0)==30 {printf \"%s~\", $0; next} 1'",
       "exec-if": "pgrep -x spotify >/dev/null && echo 0 || 1",
       "restart-interval": 5,
-      "on-click": "eww active-windows | grep -q 'spotify_player' && eww close spotify_player || eww open spotify_player",
+      "on-click": "eww open --toggle spotify_player",
       "tooltip": false,
     },
 

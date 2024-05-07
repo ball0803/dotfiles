@@ -1,11 +1,19 @@
 .logo {
   font-size: 24px;
-  background-color: $background;
   color: #FFFFFF;
-  border-radius: 2rem;
+  background-color: $color3;
   padding: 0 0.8rem 0 0.6rem;
+  margin: 0.3rem;
   transition: 0.3s;
   min-width: 30px;
+}
+
+.logo-left{
+  border-radius: 2rem 0.2rem 0.2rem 2rem;
+}
+
+.logo-right{
+  border-radius: 0.2rem 2rem 2rem 0.2rem;
 }
 
 .logo:hover {

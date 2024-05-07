@@ -1,8 +1,6 @@
-(defwidget powermenu_entry [label icon onclick]
-    (box :orientation "v" :space-evenly false :class "powermenu-entry"
-        (button :class "powermenu-button" :onclick {onclick}
-            (label :class "powermenu-icon" :text {icon})
-        )
-        (label :class "powermenu-text" :text {label})
-    )
+(defwidget power_icon []
+  (button :class "powermenu-button logo logo-right"
+    :onclick {"scripts/powerbutton.sh"}
+    (label :class "powermenu-icon" :text {""})
+  )
 )

@@ -1,0 +1,29 @@
+(defwidget volume_icon []
+  (box :visible {volume == "" ? false : true}
+    :class "volume"
+    :space-evenly false
+    :spacing 10
+    (overlay
+      :halign "center"
+      (circular-progress
+        :start-at 75.0
+        :halign "center"
+        :class "progress-cir"
+        :thickness 4.0
+        :width 30
+        :value {volume.volume}
+      )
+      (state_icon :condition true
+        :halign "center"
+        :text { volume.status == "off" ?
+          "" : volume.volume < 30 ?
+          " " : volume.volume < 60 ?
+          " " : " "
+        }
+      )
+    )
+    (label
+      :text "${volume.volume}%"
+    )
+  )
+)

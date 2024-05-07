@@ -16,9 +16,14 @@
 (deflisten status :initial "Paused"
   `playerctl --player="spotify" --follow status`
 )
-(deflisten volume :initial 0.0
+(deflisten player_volume :initial 0.0
   `playerctl --player="spotify" volume --follow`
 )
+
+(deflisten volume :initial '{"volume":100,"status":"on"}'
+  `scripts/volume.sh`
+)
+
 (deflisten position :initial '{"length":0,"lengthStr":"0:0"}'
   `playerctl --follow --player="spotify" position -f '{"length":{{position/1000000}},"lengthStr":"{{duration(position)}}"}'`
 )

@@ -1,8 +1,6 @@
 .bar-widget {
-    padding: 0.4rem 1rem;
-    margin-bottom: 0rem;
-    margin-left: 0rem;
-    margin-right: 0rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  border-radius: 6rem;
+  background-color: $color0;
+  padding: 0.2rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
 }

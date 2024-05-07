@@ -1,0 +1,23 @@
+(defwidget ram_icon []
+  (box :visible {EWW_BATTERY == "" ? false : true}
+    :class "ram"
+    :space-evenly false
+    :spacing 10
+    (overlay
+      :halign "center"
+      :style "font-size: 12px;"
+      (circular-progress
+        :start-at 75.0
+        :halign "center"
+        :class "progress-cir"
+        :thickness 4.0
+        :width 30
+        :value {EWW_RAM.used_mem_perc}
+      )
+        ""
+    )
+    (label
+      :text "${round(EWW_RAM.used_mem/1000000000, 1)}/${round(EWW_RAM.total_mem/1000000000, 1)} GB"
+    )
+  )
+)

@@ -1,0 +1,25 @@
+.indicator-icon {
+    margin: 0 0.3rem 0 0.5rem;
+    font-size: 0.7rem;
+}
+
+.indicator {
+    background-color: mix($background, $foreground, 80%);
+    border-radius: 2rem 0 0 2rem;
+    padding: 0 0.5rem 0 0.5rem;
+    margin: 0.2rem 0rem;
+    margin-right: 0;
+    transition: 0.3s;
+}
+
+.battery .progress-cir {
+  color: $color1;
+}
+
+.ram .progress-cir {
+  color: $color2;
+}
+
+.volume .progress-cir{
+  color: $color3;
+}

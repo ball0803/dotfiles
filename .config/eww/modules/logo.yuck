@@ -1,6 +1,6 @@
 (defwidget logo []
-    (button :class "logo"
-    :onclick "rofi -show drun"
+    (button :class "logo logo-left"
+    :onclick "scripts/launch.sh"
         (label :text "󰣇")
     )
 )

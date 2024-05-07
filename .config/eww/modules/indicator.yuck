@@ -1,0 +1,15 @@
+(defwidget state_icon [condition text]
+  (label :class "indicator-icon" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget indicator []
+  (box
+    :class "indicator"
+    :orientation "h"
+    :space-evenly false
+    :spacing 10
+    (volume_icon)
+    (ram_icon)
+    (battery_icon)
+  )
+)

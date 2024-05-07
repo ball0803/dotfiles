@@ -1,10 +1,13 @@
 @import "../../.cache/wal/spotify/colors-spotify.scss"
 @import "../../.cache/wal/colors.scss"
 
+@import "./scss/indicator.scss"
+@import "./scss/clock.scss"
 @import "./scss/spotify_player.scss"
 @import "./scss/workspaces.scss"
 @import "./scss/logo.scss"
 @import "./scss/bar.scss"
+@import "./scss/music.scss"
 
 * {
   all: unset;
@@ -12,3 +15,7 @@
   border-radius: 15px;
 }
 
+.progress-cir {
+  color: $color3;
+  background-color: $background;
+}

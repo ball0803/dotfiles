@@ -1,0 +1,16 @@
+.music {
+  background-color: mix($spotify_background, $spotify_color1, 60%);
+  border-radius: 0 2rem 2rem 0;
+  padding: 0.2rem 2rem 0.2rem 0.3rem;
+  transition: 0.3s;
+}
+
+.music-image-small {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 30px;
+    min-width: 40px;
+    margin: 0 1rem 0 0;
+    border-radius: 0.1rem;
+}

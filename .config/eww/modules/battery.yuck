@@ -1,0 +1,33 @@
+(defwidget battery_icon []
+  (box :visible {EWW_BATTERY == "" ? false : true}
+    :class "battery"
+    :space-evenly false
+    :spacing 10
+    (overlay
+      :halign "center"
+      (circular-progress
+        :halign "center"
+        :start-at 75.0
+        :class "progress-cir"
+        :thickness 4.0
+        :width 30
+        :value {EWW_BATTERY.BAT0.capacity}
+      )
+      (state_icon :condition true
+        :halign "center"
+        :text "${ 
+          EWW_BATTERY.BAT0.status == "Charging" ?
+          "" : EWW_BATTERY.BAT0.status == "Not charging" ?
+          "" : EWW_BATTERY.BAT0.capacity > 90 ?
+          "" : EWW_BATTERY.BAT0.capacity > 75 ?
+          "": EWW_BATTERY.BAT0.capacity > 50 ?
+          "" : EWW_BATTERY.BAT0.capacity > 25 ?
+          "" : ""
+        } "
+      )
+    )
+    (label
+      :text "${EWW_BATTERY.BAT0.capacity}%"
+    )
+  )
+)

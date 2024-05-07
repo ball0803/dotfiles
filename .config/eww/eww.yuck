@@ -5,3 +5,10 @@
 (include "modules/logo.yuck")
 (include "modules/spotify_player.yuck")
 (include "modules/workspaces.yuck")
+(include "modules/clock.yuck")
+(include "modules/battery.yuck")
+(include "modules/ram.yuck")
+(include "modules/volume.yuck")
+(include "modules/indicator.yuck")
+(include "modules/powermenu.yuck")
+
