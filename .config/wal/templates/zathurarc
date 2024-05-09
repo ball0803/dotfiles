@@ -1,0 +1,46 @@
+set completion-group-bg         "{color0}"
+set completion-group-fg         "{color1}"
+set completion-bg               "{color0}"
+set completion-fg               "{color1}"
+set completion-highlight-bg     "{color2}"
+set completion-highlight-fg     "{color1}"
+
+set notification-error-bg       "{color9}"
+set notification-error-fg       "{color1}"
+set notification-warning-bg     "{color9}"
+set notification-warning-fg     "{color1}"
+set notification-bg             "{color9}"
+set notification-fg             "{color1}"
+
+set index-bg                    "{background}"
+set index-fg                    "{color1}"
+set index-active-bg             "{color0}"
+set index-active-fg             "{color1}"
+
+set inputbar-bg                 "{color9}"
+set inputbar-fg                 "{color1}"
+
+set statusbar-bg                "{color0}"
+set statusbar-fg                "{color1}"
+
+set highlight-color             "{color2}"
+set highlight-active-color      "{color2}"
+
+set default-bg                  "{background}"
+set default-fg                  "{color1}"
+set recolor-lightcolor          "{color0}"
+set recolor-darkcolor           "{color1}"
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+set recolor                     true
+map p print

@@ -10,7 +10,7 @@
   transition: 0.3s;
   border-radius: 2rem;
   background-color: $background;
-  color: $color3;
+  color: mix($foreground, $color2, 50%);
   margin: 0.2rem 0;
   padding: 0 2rem;
 }

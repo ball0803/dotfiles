@@ -1,0 +1,149 @@
+configuration {
+    modi:                       "drun,run";
+    font:                       "JetBrainsMono Nerd Font Bold 12";
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    click-to-exit:              true;
+    location:                   4;
+}
+
+@import "~/.cache/wal/colors-rofi-pywal.rasi"
+
+@import "~/.config/.settings/rofi-border.rasi"
+
+@import "~/.cache/current_wallpaper.rasi"
+
+window {
+    width:                        320px;
+    height:                       180px;
+    x-offset:                     0px;
+    y-offset:                     0px;
+    spacing:                      0px;
+    padding:                      0px;
+    margin:                       0px; 
+    color:                        #FFFFFF;
+
+    border-radius:                20px;
+    border:                       @border-width;
+    border-color:                 @color3;
+
+    cursor:                       "default";
+
+    fullscreen:                   false;
+    enabled:                      true;
+}
+
+
+mainbox {
+    enabled:                      true;
+    orientation:                  vertical;
+    spacing:                      0px;
+    margin:                       0px;
+    children:                     ["listbox"];
+}
+
+listbox {
+    background-image:             @current-image;
+    spacing:                     20px;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+listview {
+    background-color:             @background;
+    enabled:                      true;
+    columns:                      1;
+    lines:                        8;
+    cycle:                        true;
+    dynamic:                      true;
+    scrollbar:                    false;
+    layout:                       vertical;
+    reverse:                      false;
+    fixed-height:                 true;
+    fixed-columns:                true;
+    spacing:                      0px;
+    padding:                      10px;
+    margin:                       0px;
+    border:                       0px;
+}
+
+/* ---- Element ---- */
+element {
+    enabled:                      true;
+    padding:                      10px;
+    margin:                       5px;
+    cursor:                       pointer;
+    background-color:             @background;
+    border-radius:                10px;
+}
+
+element normal.normal {
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+element normal.urgent {
+    background-color:            inherit;
+    text-color:                  @foreground;
+}
+
+element normal.active {
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+element selected.normal {
+    background-color:            @color1;
+    border-color:                @color1;
+    text-color:                  @foreground;
+}
+
+element selected.urgent {
+    background-color:            @color1;
+    text-color:                  @foreground;
+}
+
+element selected.active {
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+element alternate.normal {
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+element alternate.urgent {
+    background-color:            inherit;
+    text-color:                  @foreground;
+}
+
+element alternate.active {
+    background-color:            inherit;
+    text-color:                  @foreground;
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+message {
+    background-color:            transparent;
+    border:0px;
+    margin:20px 0px 0px 0px;
+    padding:0px;
+    spacing:0px;
+    border-radius: 10px;
+}

@@ -320,7 +320,7 @@
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
-        "on-click": "~/.config/.settings/networkmanager.sh & sleep 0.5; hyprctl dispatch focuswindow '^(nm-connection-editor)'"
+        "on-click": "~/.config/.settings/networkmanager.sh"
     },
 
     // Battery
@@ -357,7 +357,7 @@
             "car": " ",
             "default": [" ", " ", " "]
         },
-        "on-click": "pavucontrol & sleep 0.5; hyprctl dispatch focuswindow '^(pavucontrol)'"
+        "on-click": "pavucontrol"
     },
 
     // Bluetooth
@@ -366,7 +366,7 @@
         "format-disabled": "",
         "format-off": "",
         "interval": 30,
-        "on-click": "blueman-manager & sleep 0.5; hyprctl dispatch focuswindow '^(blueman-manager)'",
+        "on-click": "blueman-manager",
         "format-no-controller": ""
     },
 

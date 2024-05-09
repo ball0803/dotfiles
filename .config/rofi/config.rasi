@@ -31,7 +31,7 @@ window {
 
     border-radius:                20px;
     border:                       @border-width;
-    border-color:                 @color2;
+    border-color:                 @color3;
 
     cursor:                       "default";
 
@@ -52,7 +52,7 @@ mainbox {
 }
 
 imagebox {
-    padding:                      18px;
+    padding:                      50px 18px;
     expand:                       false;
     height:                       20%;
     background-image:             @current-image;
@@ -107,9 +107,9 @@ button {
 
 button selected {
     background-color:             @background;
-    border-color:                 @color2;
+    border-color:                 @color3;
     border:                       0 0 3px 0;
-    text-color:                   @color2;
+    text-color:                   @color3;
 }
 
 
@@ -164,9 +164,9 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color:            @color2;
-    border-color:                @color2;
-    text-color:                  @background;
+    background-color:            @color3;
+    border-color:                @color3;
+    text-color:                  @foreground;
 }
 
 element selected.urgent {
@@ -220,6 +220,6 @@ message {
 
 scrollbar {
   background-color: @color0;
-  handle-color: @color2;
+  handle-color: @color3;
 
 }

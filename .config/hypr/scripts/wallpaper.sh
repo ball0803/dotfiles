@@ -38,9 +38,9 @@ case $1 in
     "init")
         sleep 1
         if [ -f $cache_file ]; then
-            wal -q -i $current_wallpaper
+            wal -q -a 70 -i $current_wallpaper
         else
-            wal -q -i ~/wallpaper/
+            wal -q -a 70 -i ~/wallpaper/
         fi
     ;;
 
@@ -51,16 +51,18 @@ case $1 in
         do
             echo -en "$rfile\x00icon\x1f$HOME/wallpaper/${rfile}\n"
         done | rofi -dmenu -i -replace -config ~/.config/rofi/config-wallpaper.rasi)
+        
+
         if [ ! "$selected" ]; then
             echo "No wallpaper selected"
             exit
         fi
-        wal -q -a 70 -s -t -i ~/wallpaper/$selected
+        wal -q -a 70 -i ~/wallpaper/$selected
     ;;
 
     # Randomly select wallpaper 
     *)
-        wal -q -s -a 70 -t -i ~/wallpaper/
+        wal -q -a 70 -i ~/wallpaper/
     ;;
 
 esac
@@ -81,6 +83,7 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 # -----------------------------------------------------
 # ~/.config/waybar/launch.sh
 eww reload
+spicetify apply
 
 # ----------------------------------------------------- 
 # Set the new wallpaper
