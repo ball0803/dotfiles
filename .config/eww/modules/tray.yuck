@@ -1,0 +1,159 @@
+(defwidget tray []
+  (eventbox
+    :onhoverlost "eww close system_tray"
+    (box
+      :class "system-tray"
+      :space-evenly false
+      :spacing 10
+      :hexpand false
+      :vexpand false
+      :orientation 'v'
+      (box
+        :class "system-tray-btn-box"
+        :orientation 'h'
+        :spacing 20
+        (button
+          :class "system-tray-btn"
+          :onclick "$HOME/.config/hypr/scripts/wallpaper.sh"
+          :onrightclick "$HOME/.config/hypr/scripts/wallpaper.sh select"
+          :timeout "5s"
+          (label
+            :text ""
+          )
+        )
+        (button
+          :class "system-tray-btn"
+          :onclick 'dunstctl set-paused toggle'
+          :onrightclick 'dunstctl history-pop'
+          (label
+            :text ""
+          )
+        )
+        (button
+          :class "system-tray-btn"
+          (label
+            :style "margin-left: 10px;"
+            :text ""
+          )
+        )
+        (button
+          :class "system-tray-btn"
+          :onclick "wlogout"
+          :timeout "10s"
+          (label
+            :text ""
+          )
+        )
+      )
+      (box
+        :orientation 'h'
+        :spacing 10
+        (box
+          :class "system-btn-box"
+          :space-evenly false
+
+          (eventbox
+            :onclick "$HOME/.config/.settings/networkmanager.sh"
+            (label
+              :text {
+                network.essid == "lo" || network.essid == "" ?
+                "Disconnected" : network.essid
+              }
+            )
+          )
+          (button
+            :hexpand true
+            :halign "end"
+            :class "system-btn"
+            :onclick "notify-send 'Turn Off wifi'"
+            (label
+              :text ""
+            )
+          )
+        )
+        (box
+          :class "system-btn-box"
+          :space-evenly false
+          (eventbox
+            :onclick "$HOME/.config/.settings/bluetoothmanager.sh"
+            (label
+              :style "min-height: 20px"
+              :text {
+                bluetooth_status == "Off" ?
+                "Power Off" : bluetooth.name == "" ?
+                "Disconnected" : "${bluetooth.name} ${bluetooth.battery} %"
+              }
+            )
+          )
+          (button
+            :hexpand true
+            :halign "end"
+            :class "system-btn ${bluetooth_status == "On" ? "" : "off"}"
+            :onclick {bluetooth_status == "On" ?
+              "bluetoothctl power off; eww update bluetooth_status='Off'" : "bluetoothctl power on; eww update bluetooth_status='On'"
+            }
+            (label
+              :style "margin: 0 -5px 0 5px;"
+              :text ""
+            )
+          )
+        )
+      )
+      (box
+        :class "system-slider"
+        :space-evenly false
+        :spacing 10
+        :orientation 'h'
+        (button
+          :onclick "amixer -D pipewire set Master 1+ toggle"
+          (label
+            :text {
+              volume.status == "on" ?
+              "" : ""
+            }
+          )
+        )
+        (scale
+          :min 0
+          :max 100
+          :value {volume.volume}
+          :onchange "amixer -D pipewire sset Master {}%"
+        )
+        (label
+          :style "font-size: 1rem"
+          :text {
+            volume.status == "on" ?
+            "${volume.volume}%" : "Muted"
+          }
+        )
+      )
+      (box
+        :class "system-slider"
+        :space-evenly false
+        :spacing 10
+        :orientation 'h'
+        (label
+          :text ""
+        )
+        (scale
+          :min 1
+          :max 101
+          :value {brightness}
+          :onchange "brightnessctl -q s {}%"
+        )
+        (label
+          :style "font-size: 1rem"
+          :text "${brightness}%"
+        )
+      )
+      (calendar
+        :day 12
+        :month 5
+        :year 2024
+        :show-heading true
+        :show-day-names true
+        :show-week-numbers false
+      )
+    )
+  )
+)

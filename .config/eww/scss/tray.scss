@@ -1,0 +1,87 @@
+.system-tray {
+  background-color: $color0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.system-tray-btn-box{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url($wallpaper);
+  padding: 30px 50px;
+}
+
+.system-tray-btn{
+  font-size: 24px;
+  font-weight: bold;
+  color: $foreground;
+  background-color: $color1;
+  margin: 0px;
+  min-width: 25px;
+  padding: 25px 20px 25px 16px;
+  font-size: 24px;
+  transition: background-color 200ms ease-in;
+  &:hover {
+    background-color: $color3;
+  }
+}
+
+.system-btn-box {
+  font-size: 14px;
+  color: $color0;
+  background-color: $color15;
+  min-height: 20px;
+  padding: 10px;
+}
+
+.system-btn {
+  min-height: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 5px 0 10px;
+  padding: 5px 25px 5px 10px;
+  color: $foreground;
+  background-color: $color3;
+  transition: background-color 200ms;
+  &.off {
+    background-color: $color4;
+  }
+}
+
+.system-btn:hover {
+  background-color: $color4;
+}
+
+.system-slider{
+  all: unset;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: $color15;
+  color: $color0;
+  padding: 0.8em;
+  border-radius: 10px;
+}
+
+.system-slider scale trough highlight {
+  all: unset;
+  background-color: $color3;
+  border-radius: 10px;
+  transition: background-color 200ms;
+}
+
+.system-slider scale trough {
+  all: unset;
+  background-color: $color0;
+  border-radius: 2em;
+  min-height: 0.6em;
+  min-width: 18em;
+  margin-left: 0.8em;
+  margin-right: 0.2em;
+  transition: background-color 200ms;
+}
+
+.system-slider scale trough:hover highlight {
+  background-color: $color4;
+}

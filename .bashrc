@@ -13,3 +13,4 @@ PS1='[\u@\h \W]\$ '
 eval "$(oh-my-posh init bash)"
 eval $(oh-my-posh prompt init bash --config /usr/share/oh-my-posh/themes/easy-term.omp.json)
 alias config='/usr/bin/git --git-dir=/home/camel/dotfiles/ --work-tree=/home/camel'
+eval "$(zoxide init bash)"

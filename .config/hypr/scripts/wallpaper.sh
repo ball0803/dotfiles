@@ -12,11 +12,7 @@
 # Cache file for holding the current wallpaper
 
 cache_file="$HOME/.cache/current_wallpaper"
-css_file="$HOME/.cache/current_wallpaper.css"
 rasi_file="$HOME/.cache/current_wallpaper.rasi"
-blur_file="$HOME/.config/.settings/blur.sh"
-blur="50x30"
-blur=$(cat $blur_file)
 
 # Create cache file if not exists
 if [ ! -f $cache_file ] ;then
@@ -58,6 +54,7 @@ case $1 in
             exit
         fi
         wal -q -a 70 -i ~/wallpaper/$selected
+        echo "* { current-image: url(\"$HOME/wallpaper/$selected\", width); }" > "$rasi_file"
     ;;
 
     # Randomly select wallpaper 
@@ -83,16 +80,23 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 # -----------------------------------------------------
 # ~/.config/waybar/launch.sh
 eww reload
-spicetify apply
+# spicetify apply -q
+systemctl --user restart dunst
 
 # ----------------------------------------------------- 
 # Set the new wallpaper
 # -----------------------------------------------------
 # transition_type="center"
 # transition_type="wipe"
-# transition_type="outer"
-transition_type="any"
+transition_type="outer"
+# transition_type="any"
 # transition_type="random"
+
+height=$(hyprctl monitors | awk '/availableModes:/ {split($2, modes, "x"); split(modes[2], height, "@"); print height[1]}')
+while read -r x y; do
+  inverted_y=$((height - y))
+  position="$x, $inverted_y"
+done < <(hyprctl cursorpos | awk -F ', ' '{print $1, $2}')
 
 wallpaper_engine=$(cat $HOME/.config/.settings/wallpaper-engine.sh)
 if [ "$wallpaper_engine" == "swww" ] ;then
@@ -103,7 +107,7 @@ if [ "$wallpaper_engine" == "swww" ] ;then
         --transition-fps=60 \
         --transition-type=$transition_type \
         --transition-duration=0.7 \
-        --transition-pos "$( hyprctl cursorpos )"
+        --transition-pos "$position"
 elif [ "$wallpaper_engine" == "hyprpaper" ] ;then
     # hyprpaper
     echo ":: Using hyprpaper"
@@ -128,7 +132,6 @@ fi
 # Write selected wallpaper into .cache files
 # ----------------------------------------------------- 
 echo "$wallpaper" > "$cache_file"
-echo "* { current-image: url(\"$HOME/wallpaper/$selected\", width); }" > "$rasi_file"
 # ----------------------------------------------------- 
 # Send notification
 # ----------------------------------------------------- 

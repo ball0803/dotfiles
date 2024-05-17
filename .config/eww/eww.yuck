@@ -11,4 +11,4 @@
 (include "modules/volume.yuck")
 (include "modules/indicator.yuck")
 (include "modules/powermenu.yuck")
-
+(include "modules/tray.yuck")

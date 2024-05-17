@@ -19,8 +19,11 @@ while read -r layout; do
     layout_names+=("$full_name")
 done < <(hyprctl devices -j | jq -r '.keyboards[] | select(.name == "at-translated-set-2-keyboard") | .layout' | tr ',' '\n')
 
+hyprctl switchxkblayout at-translated-set-2-keyboard next
+hyprctl switchxkblayout sino-wealth-gaming-kb- next
 
 active_keymap="$(hyprctl devices -j | jq -r '.keyboards[] | select(.name == "at-translated-set-2-keyboard") | .active_keymap')"
+notify-send "Active Keymap" "$active_keymap"
 
 echo "Active = $active_keymap"
 # Print the layout names array
@@ -35,6 +38,7 @@ selected_index=0
 for name in "${layout_names[@]}"; do
     if [[ "$name" == "$selected_layout" ]]; then
         hyprctl switchxkblayout at-translated-set-2-keyboard $selected_index
+        hyprctl switchxkblayout sino-wealth-gaming-kb- $selected_index
         notify-send "Active Keymap" "$name"
         exit 0
     fi

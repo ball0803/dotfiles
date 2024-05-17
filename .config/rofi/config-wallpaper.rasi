@@ -187,13 +187,11 @@ element alternate.active {
 }
 
 element-icon {
-    background-color:            @color0;
-    text-color:                  inherit;
+    text-color:                  @color1;
     size:                        300px;
     margin:                      0px;
     padding:                     0px;
     cursor:                      inherit;
-    horizontal-align:            0.5;
 }
 
 element-text {

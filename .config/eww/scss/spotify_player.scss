@@ -21,32 +21,6 @@
   margin: 1em 0;
 }
 
-.metric{
-  all: unset;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #FFFFFF;
-  padding: 0.4em;
-}
-
-.metric scale trough highlight {
-  all: unset;
-  // background-color: #eb6f92;
-  background-color: $spotify_color1;
-  border-radius: 10px;
-}
-
-.metric scale trough {
-  all: unset;
-  background-color: $spotify_color0;
-  // background-color: #191724;
-  border-radius: 2em;
-  min-height: 0.4em;
-  min-width: 7em;
-  margin-left: 0.8em;
-  margin-right: 0.2em;
-}
-
 .btn {
   all: unset;
   font-size: 30px;

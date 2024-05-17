@@ -22,3 +22,18 @@
     :anchor "top left"
   )
 (player))
+
+(defwindow system_tray
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :namespace "system_tray"
+  :geometry (
+    geometry
+    :width "400px"
+    :y "2%"
+    :x "2%"
+    :anchor "top right"
+  )
+  (tray)
+)

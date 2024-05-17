@@ -1,4 +1,19 @@
 (defvar volume_muted 1.0)
+(defvar bluetooth_status "On")
+(defvar ANIM_DURATION "500ms")
+(defvar controller false)
+
+(defpoll brightness
+  :initial "100"
+  :interval "1s"
+  `brightnessctl -P g`
+)
+
+(defpoll bluetooth
+  :initial '{"name":"","battery":""}'
+  :interval "1s"
+  `scripts/bluetooth.sh`
+)
 
 (deflisten workspaces :initial "[{}]"
 "scripts/workspaces.sh")
@@ -32,3 +47,12 @@
   :initial '{"title":"","length":0,"artist":"","position":0,"lengthStr":"0:0"}'
   `scripts/spotify_player.sh`
 )
+
+(deflisten network
+  :initial '{"essid":"","signal":""}'
+  `scripts/network.sh`
+)
+
+
+(deflisten notifications :initial '{"count": 0, "notifications": [], "popups": []}'
+"scripts/notifications.sh current")

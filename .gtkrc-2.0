@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/camel/.gtkrc-2.0.mine"
-gtk-theme-name="Raleigh"
+gtk-theme-name="Camel"
 gtk-icon-theme-name="Breeze-Round-Chameleon Dark Icons"
 gtk-font-name="JetBrainsMono Nerd Font Mono Medium 12"
 gtk-cursor-theme-name="Adwaita"
