@@ -1,7 +1,7 @@
 [global]
     frame_width = 0
-#    frame_color = "#dfe2e7"
-    highlight = "#3888E0"
+#    frame_color = "#f3e4ce"
+    highlight = "#7F827B"
 
     font = JetBrainsMono Nerd Font Medium 12
 
@@ -76,18 +76,18 @@
     context = ctrl+mod1+c
 
 [urgency_low]
-    background = "#0B0B0B"
-    foreground = "#dfe2e7"
+    background = "#0a0503"
+    foreground = "#f3e4ce"
     timeout = 5
 
 [urgency_normal]
-    background = "#0B0B0B"
-    foreground = "#97A0B2"
-#    frame_color = "#97A0B2"
+    background = "#0a0503"
+    foreground = "#B9906B"
+#    frame_color = "#B9906B"
     timeout = 5
 
 [urgency_critical]
-    background = "#7788A4"
-    foreground = "#dfe2e7"
-#    frame_color = "#7788A4"
+    background = "#9A6D52"
+    foreground = "#f3e4ce"
+#    frame_color = "#9A6D52"
     timeout = 0
