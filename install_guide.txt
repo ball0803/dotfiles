@@ -1,0 +1,56 @@
+change location of mirror
+```
+reflector --country --save TH /etc/pacman.d/mirrorlist
+```
+
+install first package in arch linux before config
+```
+pacstrap -K /mnt base base-devel linux linux-firmware base-davel neovim vim htop fastfetch git sudo amd-ucode amd-ucode bluez bluez-utils networkmanager grub efibootmgr mtools dosfstools
+```
+
+Default desktop app
+```
+yay -S hyprland-git xdg-desktop-portal-hyprland-git kitty blueman eww thunar zathura okular yazi brave spotify spicetify cava dunst wlogout rofi nm-connection-editor qt6-wayland
+```
+
+```
+yay -S xdg-user-dirs xdg-utils
+
+xdg-user-dirs
+```
+
+Audio
+```
+yay -S pipewire-git wireplumber-git pipewire-pulse-git pipewire-alsa-git pipewire-audio-git playerctl
+```
+Default functional
+```
+yay -S xclip pywal swappy grim swww zoxide onedrive-abraunegg man tldr wget2 homebrew ripgrep fzf bc socatc
+```
+
+Firewall
+```
+yay -S --noconfirm ufw
+```
+Font
+```
+yay -S --noconfirm noto-fonts-cjk noto-fonts-emoji ttf-font-awesome ttf-jetbrains-mono-nerd
+```
+
+Setup Dotfiles
+https://www.atlassian.com/git/tutorials/dotfiles
+
+```
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+```
+
+Set up Keyboard layout
+- Install wget
+- wget https://github.com/hiohlan/kiimo/raw/main/output/Manoonchai/Manoonchai_xkb --output-document=Manoonchai_xkb
+- copy to keyboard layout folder
+- `sudo cp ./Manoonchai_xkb /usr/share/X11/xkb/symbols/`
+- set up keyboard layout in hypr config
+- input {
+    kb_layout = us,Manoonchai_xkb
+    kb_options=grp:win_space_toggle
+    }
