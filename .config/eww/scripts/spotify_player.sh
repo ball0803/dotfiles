@@ -3,7 +3,7 @@
 base_dir="$HOME/.config/eww/"
 path=$HOME/.cache/current_art
 playerctl metadata --player="spotify" -F -f '{{playerName}} {{title}} {{artist}} {{mpris:artUrl}} {{status}} {{mpris:length}}' | while read -r line; do
-    title=$(playerctl metadata --player="spotify" -f "{{xesam:title}}")
+    title=$(playerctl metadata --player="spotify" -f "{{xesam:title}}" | cut -c 1-50)
     artist=$(playerctl metadata --player="spotify" -f "{{xesam:artist}}")
     artUrl=$(playerctl metadata --player="spotify" -f "{{mpris:artUrl}}")
     length=$(playerctl metadata --player="spotify" -f "{{mpris:length}}")

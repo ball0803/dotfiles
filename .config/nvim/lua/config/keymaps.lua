@@ -2,13 +2,12 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 vim.g.mapleader = " "
-
+vim.g.maplocalleader = ","
 local keymap = vim.keymap -- for conciseness
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
-
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 -- halfpage vertical movement center
