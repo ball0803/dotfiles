@@ -6,12 +6,14 @@ fastfetch 2.15.0-1
 fzf 0.53.0-1
 git 2.45.2-1
 htop 3.3.0-3
+libstdc++5 3.3.6-9
 man-db 2.12.1-1
 nano 7.2-1
 neovim 0.10.0-4
 oh-my-posh 21.2.1-1
 python-pynvim 0.5.0-3
 reflector 2023-2
+ripgrep 14.1.0-1
 sudo 1.9.15.p5-1
 tldr 3.2.0-3
 tmux 3.4-8
@@ -23,3 +25,6 @@ xsel 1.2.1-1
 yay 12.3.5-1
 yay-debug 12.3.5-1
 zoxide 0.9.4-2
+zsh 5.9-5
+zsh-autosuggestions 0.7.0-2
+zsh-syntax-highlighting 0.8.0-1
