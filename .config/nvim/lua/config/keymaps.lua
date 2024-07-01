@@ -4,10 +4,13 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+keymap.del("n", "H")
+keymap.del("n", "L")
+keymap.set("n", "N", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+keymap.set("n", "S", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
 keymap.del({ "n", "x", "i", "s" }, "<C-s>")
-keymap.set('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
-keymap.set('i', '<C-S>', '<Esc>:w<CR>a', { noremap = true, silent = true })
+keymap.set('n', '<leader>s', '<cmd>w<CR>')
 
 keymap.set("n", "h", "j")
 keymap.set("n", "t", "k")
