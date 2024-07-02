@@ -19,3 +19,4 @@ eval "$(oh-my-posh init bash)"
 eval "$(oh-my-posh prompt init bash --config /usr/share/oh-my-posh/themes/lambdageneration.omp.json)"
 
 PS1='[\u@\h \W]\$ '
+. "$HOME/.cargo/env"
