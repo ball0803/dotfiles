@@ -15,7 +15,7 @@ require("lazy").setup({
       import = "lazyvim.plugins",
       opt = {
         colorscheme = "rose-pine",
-      }
+      },
     },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.linting.eslint" },
