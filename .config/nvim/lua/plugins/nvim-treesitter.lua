@@ -19,7 +19,9 @@ return {
       "vim",
       "yaml",
       "tsx",
+      "c_sharp",
       "typescript",
+      "go",
     },
   },
 }
