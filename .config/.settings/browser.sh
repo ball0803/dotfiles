@@ -1,1 +1,1 @@
-brave
+zen-browser
