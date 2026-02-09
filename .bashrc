@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+
 alias ls='eza -a'
 alias ll='eza -alh'
 alias tree='eza --tree'
@@ -20,3 +21,14 @@ latex_template() {
 }
 eval "$(zoxide init bash)"
 . "$HOME/.cargo/env"
+
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export PATH=$PATH:$HOME/go/bin
+export PATH="$HOME/bin:$PATH"
+# Created by `pipx` on 2025-04-06 09:21:26
+export PATH="$PATH:/home/camel/.local/bin"
+
+source $HOME/.fzf-tab/bash/fzf-bash-completion.sh
+bind -x '"\t": fzf_bash_completion'
