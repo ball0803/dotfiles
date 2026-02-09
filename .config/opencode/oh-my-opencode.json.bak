@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": {
+      "model": "minimax (local)/plezan/MiniMax-M2.1-REAP-50-W4A16"
+    },
+    "prometheus": {
+      "model": "minimax (local)/plezan/MiniMax-M2.1-REAP-50-W4A16"
+    },
+    "metis": {
+      "model": "minimax (local)/plezan/MiniMax-M2.1-REAP-50-W4A16"
+    },
+    "atlas": {
+      "model": "minimax (local)/plezan/MiniMax-M2.1-REAP-50-W4A16"
+    },
+    "oracle": {
+      "model": "openai/gpt-5.2"
+    },
+    "librarian": {
+      "model": "alibaba/qwen3-max"
+    },
+    "explore": {
+      "model": "alibaba-cn/deepseek-r1-distill-llama-70b"
+    },
+    "momus": {
+      "model": "alibaba-cn/deepseek-r1-distill-llama-70b"
+    },
+    "multimodal-looker": {
+      "model": "alibaba/qwen3-omni-flash"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "alibaba/qwen-vl-max"
+    },
+    "ultrabrain": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "artistry": {
+      "model": "alibaba/qwen-vl-max"
+    },
+    "quick": {
+      "model": "alibaba-cn/deepseek-r1-distill-llama-70b"
+    },
+    "unspecified-low": {
+      "model": "minimax (local)/plezan/MiniMax-M2.1-REAP-50-W4A16"
+    },
+    "unspecified-high": {
+      "model": "minimax (local)/plezan/MiniMax-M2.1-REAP-50-W4A16"
+    },
+    "writing": {
+      "model": "alibaba/qwen3-omni-flash"
+    }
+  }
+}

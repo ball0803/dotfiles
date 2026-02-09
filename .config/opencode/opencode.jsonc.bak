@@ -1,0 +1,113 @@
+{
+  "provider": {
+    "mistral (local)": {
+      "name": "mistral (local)",
+      "options": {
+        "baseURL": "https://moore-col-keen-college.trycloudflare.com/v1",
+        "apiKey": "d4c3f2c2cc6bd34ba8b286917b7916e5c56523576ec0101e875da9bac8d2caef"
+      },
+      "models": {
+        "mistralai/Devstral-Small-2-24B-Instruct-2512": {
+          "name": "mistralai/Devstral-Small-2-24B-Instruct-2512",
+          "limit": {
+            "context": 127264,
+            "output": 65536
+          }
+        }
+      }
+    },
+    "mistral (local)2": {
+      "name": "mistral (local)2",
+      "options": {
+        "baseURL": "https://agent-accessibility-reply-consolidation.trycloudflare.com/v1",
+        "apiKey": "641cbaef9ddd409f8f1edfd9d275ddc6bbf6a78a9871423b5163f4651ed7f244"
+      },
+      "models": {
+        "mistralai/Devstral-Small-2-24B-Instruct-2512": {
+          "name": "Devstral-Small-2-24B-Instruct-2512",
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          }
+        }
+      }
+    },
+    "qwen": {
+      "name": "qwen (local)",
+      "options": {
+        "baseURL": "https://sides-associate-nuclear-reggae.trycloudflare.com/v1",
+        "apiKey": "7ac202b61b308285f7c766d3fc2087399a814c5a305e177027540e4254e8dcd8"
+      },
+      "models": {
+        "Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8": {
+          "name": "Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8",
+          "stream": false,
+          "limit": {
+            "context": 200000,
+            "output": 65536
+          }
+        }
+      }
+    }
+  },
+  "plugin": [
+    "@zenobius/opencode-skillful",
+    "my-opencode-plugin"
+  ],
+  "mcp": {
+    "puppeteer-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-puppeteer@latest"
+      ],
+      "enabled": true,
+      "environment": {
+        "PUPPETEER_HEADLESS": "true",
+        "PUPPETEER_TIMEOUT": "30000"
+      }
+    },
+    "context7": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "environment": {
+        "CONTEXT_TOKEN_KEY": ""
+      },
+      "enabled": true
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    },
+    "octocode-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "octocode-mcp@latest"
+      ],
+      "enabled": true,
+      "environment": {
+        "GITHUB_TOKEN": "{env:GITHUB_TOKEN_KEY}"
+      }
+    },
+    "searxng": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-searxng"
+      ],
+      "enabled": true,
+      "environment": {
+        "SEARXNG_URL": "http://searxng.internal"
+      }
+    }
+  },
+  "$schema": "https://opencode.ai/config.json"
+}

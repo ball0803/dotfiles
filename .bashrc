@@ -32,3 +32,6 @@ export PATH="$PATH:/home/camel/.local/bin"
 
 source $HOME/.fzf-tab/bash/fzf-bash-completion.sh
 bind -x '"\t": fzf_bash_completion'
+
+# opencode
+export PATH=/home/camel/.opencode/bin:$PATH

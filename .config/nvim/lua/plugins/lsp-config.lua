@@ -1,10 +1,12 @@
 return {
 
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         lazy = false,
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                pip = "py -m pip",
+            })
         end,
         opts = {
             ensure_installed = {
@@ -14,12 +16,14 @@ return {
                 "shellcheck",
                 "shfmt",
                 "flake8",
+                "black",
+                "pyright",
                 "gopls",
             },
         },
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         lazy = false,
         opts = {
             auto_install = true,
@@ -66,6 +70,18 @@ return {
                         cargo = {
                             allFeatures = true,
                         },
+                    },
+                },
+            })
+
+            lspconfig.pyright.setup({
+                cmd = { "py", "-m", "pyright-langserver", "--stdio" },
+                capabilities = capabilities,
+                filetypes = { "python" },
+                root_dir = util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git"),
+                setting = {
+                    python = {
+                        pythonPath = "py",
                     },
                 },
             })
